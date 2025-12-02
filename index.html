@@ -33,7 +33,7 @@
     <div id="names">Loading...</div>
 
     <script>
-        axios.get("http://127.0.0.1:3000/")
+        axios.get("https://test-backend-5tm0.onrender.com")
             .then(response => {
                 const data = response.data; // ["maya", "itay"]
                 document.getElementById("names").innerHTML =
