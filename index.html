@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names From Backend</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #333;
+        }
+        #names {
+            padding: 10px;
+            background-color: #f5f5f5;
+            border-radius: 5px;
+        }
+        #names div {
+            padding: 8px;
+            margin: 5px 0;
+            background-color: white;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Names From Backend (Axios)</h2>
+    <div id="names">Loading...</div>
+
+    <script>
+        axios.get("http://127.0.0.1:3000/")
+            .then(response => {
+                const data = response.data; // ["maya", "itay"]
+                document.getElementById("names").innerHTML =
+                    data.map(n => `<div>${n}</div>`).join("");
+            })
+            .catch(error => {
+                document.getElementById("names").innerHTML =
+                    "Error: " + error;
+            });
+    </script>
+</body>
+</html>
